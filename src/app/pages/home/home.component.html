@@ -1,0 +1,6 @@
+<app-header
+  [opTitle]="(api.homeContent$ | async)?.title"
+  [opText]="(api.homeContent$ | async)?.text"
+></app-header>
+<app-image-optometrie-list></app-image-optometrie-list>
+<app-image-optometrie-full-screen></app-image-optometrie-full-screen>
