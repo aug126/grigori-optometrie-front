@@ -1,16 +1,34 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ChangeDetectionStrategy,
+  Input,
+  Output,
+} from '@angular/core';
+import { EventEmitter } from '@angular/core';
+import { getImage } from 'src/app/helpers/get-image';
+import { Image, OptometricImage } from 'src/app/interfaces/api.interface';
 
 @Component({
   selector: 'app-image-optometrie-item',
   templateUrl: './image-optometrie-item.component.html',
   styleUrls: ['./image-optometrie-item.component.less'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ImageOptometrieItemComponent implements OnInit {
+  @Input('opOptometricImage') optometricImage!: OptometricImage;
 
-  constructor() { }
+  @Output('opOpenOptoImage')
+  openOptoImage = new EventEmitter<OptometricImage>();
 
-  ngOnInit(): void {
+  get image() {
+    return getImage(this.optometricImage.image, 'medium');
   }
+  constructor() {}
 
+  ngOnInit(): void {}
+
+  emitOpenImage() {
+    this.openOptoImage.emit(this.optometricImage);
+  }
 }

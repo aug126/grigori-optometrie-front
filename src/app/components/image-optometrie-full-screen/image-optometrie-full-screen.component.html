@@ -1,1 +1,8 @@
-<p>image-optometrie-full-screen works!</p>
+<div
+  *ngIf="showOptoImage"
+  (click)="hideImage!.emit()"
+  [@simpleFadeAnimation]="'in'"
+  class="fixed top-0 bottom-0 right-0 left-0 z-1000 bg-white flex items-center justify-center"
+>
+  <img [src]="url" alt="" [width]="imgWidth" />
+</div>

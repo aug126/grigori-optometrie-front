@@ -1,1 +1,6 @@
-<p>image-optometrie-list works!</p>
+<div *ngFor="let optoImg of optometricImages">
+  <app-image-optometrie-item
+    (opOpenOptoImage)="openOptoImage.emit($event)"
+    [opOptometricImage]="optoImg"
+  ></app-image-optometrie-item>
+</div>

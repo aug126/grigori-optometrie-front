@@ -1,1 +1,16 @@
-<p>calibration works!</p>
+<button
+  (click)="openCalibration.emit()"
+  [class]="openedCalibration ? 'shadow-inset' : 'shadow'"
+  [class.active]="openedCalibration"
+  class="btn bg-white py-0"
+>
+  <div class="flex rounded items-center btn-content">
+    <div class="icon-ruler icon-xl bg-primary p-8"></div>
+    <div
+      style="height: 42px"
+      class="flex items-center ml-3 setting text-primary"
+    >
+      Calibration
+    </div>
+  </div>
+</button>

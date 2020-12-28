@@ -1,0 +1,49 @@
+@import "./variables.less";
+
+.btn {
+  padding: 8px 12px;
+  transition: all ease 0.3s;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 4px;
+  border: solid 1px @gray-light;
+}
+.btn-primary {
+  border-color: @primary;
+  color: @primary;
+  &:hover {
+    background-color: fade(@primary, 20%);
+  }
+}
+.btn-danger {
+  border-color: @danger;
+  color: @danger;
+  &:hover {
+    background-color: fade(@danger, 20%);
+  }
+}
+.btn-success {
+  border-color: @success;
+  color: @success;
+  &:hover {
+    background-color: fade(@success, 20%);
+  }
+}
+
+.btn-border {
+  border-width: 1px;
+  border-style: solid;
+}
+
+.icon {
+  width: 21px;
+  height: 21px;
+}
+.icon-xl {
+  width: 24px;
+  height: 24px;
+}
+.icon-2xl {
+  width: 30px;
+  height: 30px;
+}

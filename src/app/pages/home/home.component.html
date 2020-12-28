@@ -1,6 +1,28 @@
-<app-header
-  [opTitle]="(api.homeContent$ | async)?.title"
-  [opText]="(api.homeContent$ | async)?.text"
-></app-header>
-<app-image-optometrie-list></app-image-optometrie-list>
-<app-image-optometrie-full-screen></app-image-optometrie-full-screen>
+<div class="text-center header-container">
+  <app-header
+    (opOpenCalibration)="openCalibration()"
+    [opTitle]="(apiS.homeContent$ | async)?.title"
+    [opText]="(apiS.homeContent$ | async)?.text"
+    [opOpenedCalibration]="openedCalibration"
+  ></app-header>
+</div>
+<div class="w-sm mx-auto">
+  <app-image-optometrie-list
+    (opOpenOptoImage)="openedOptoImage = $event"
+    [opOptometricImages]="apiS.optoImages$ | async"
+  ></app-image-optometrie-list>
+</div>
+
+<app-image-optometrie-full-screen
+  (opHideImage)="openedOptoImage = null"
+  [opShowOptoImage]="openedOptoImage"
+  [opPxToCm]="calibrationS.pxToCm"
+></app-image-optometrie-full-screen>
+
+<app-calibration-full-screen
+  [opShowCalibration]="openedCalibration"
+  [opOldPxToCmRatio]="calibrationS.pxToCm"
+  (opHideCalibration)="openedCalibration = false"
+  (opPxToCmRatio)="calibrationS.updateRatio($event)"
+>
+</app-calibration-full-screen>

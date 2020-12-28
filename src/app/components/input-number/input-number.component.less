@@ -1,0 +1,61 @@
+@import "../../../less/variables.less";
+
+input {
+  text-align: center;
+  border: 1px solid #6c757d;
+}
+
+input[type="number"] {
+  -webkit-appearance: textfield !important;
+  -moz-appearance: textfield !important;
+  appearance: textfield !important;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.wrapper {
+  border: 2px @gray-light solid;
+  width: 120px; //40vw;
+  height: 30px; //50px;
+  padding: 0px;
+  display: flex;
+  border-radius: 15px;
+}
+
+.plusminus {
+  height: 100%;
+  width: 30%;
+  border: none;
+  color: #5f5fce;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -2px;
+}
+
+.num {
+  height: 100%;
+  width: 39%;
+  border: none;
+  font-size: 16px;
+  background-color: transparent;
+  border-left: 1px solid @gray-light;
+  border-right: 1px solid @gray-light;
+  margin-top: -1px;
+}
+
+.plus {
+  & > span {
+    font-size: 30px;
+  }
+}
+
+.minus {
+  & > span {
+    margin-top: -5px;
+    font-size: 40px;
+  }
+}

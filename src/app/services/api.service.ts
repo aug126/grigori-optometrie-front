@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { HomeContent, OptometricImages } from '../interfaces/api.interface';
+import { HomeContent, OptometricImage } from '../interfaces/api.interface';
+import { combineAll, share } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +11,7 @@ import { HomeContent, OptometricImages } from '../interfaces/api.interface';
 export class ApiService {
   api = environment.api;
 
-  optoImages$: Observable<OptometricImages>;
+  optoImages$: Observable<OptometricImage[]>;
   homeContent$: Observable<HomeContent>;
 
   constructor(private http: HttpClient) {
@@ -18,11 +19,13 @@ export class ApiService {
     this.homeContent$ = this.getHomeContent();
   }
 
-  getOptoImages$() {
-    return this.http.get<OptometricImages>(this.api + '/optometric-images');
+  private getOptoImages$() {
+    return this.http
+      .get<OptometricImage[]>(this.api + '/optometric-images')
+      .pipe(share());
   }
 
-  getHomeContent() {
-    return this.http.get<HomeContent>(this.api + '/home-content');
+  private getHomeContent() {
+    return this.http.get<HomeContent>(this.api + '/home-content').pipe(share());
   }
 }

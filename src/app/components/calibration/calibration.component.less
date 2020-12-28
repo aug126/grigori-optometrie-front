@@ -1,0 +1,19 @@
+@import "../../../less/variables.less";
+
+.icon-ruler {
+  -webkit-mask: url("/assets/icons/ruler-solid.svg") no-repeat center;
+  mask: url("/assets/icons/ruler-solid.svg") no-repeat center;
+}
+
+.btn .btn-content {
+  transition: all ease 0.1s;
+}
+.btn {
+  border-color: @primary;
+  &.active {
+    border-color: @gray-light;
+    .btn-content {
+      transform: translateY(-1px);
+    }
+  }
+}

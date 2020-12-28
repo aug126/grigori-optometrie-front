@@ -1,5 +1,3 @@
-export type OptometricImages = OptometricImage[];
-
 export interface HomeContent {
   id: number;
   title: string;
@@ -11,7 +9,7 @@ export interface HomeContent {
 export interface OptometricImage {
   id: number;
   title: string;
-  description: string;
+  image_width: number;
   created_at: string;
   updated_at: string;
   image: Image;
@@ -38,6 +36,9 @@ export interface Image {
 }
 
 export interface Formats {
+  large: Format;
+  medium: Format;
+  small: Format;
   thumbnail: Format;
 }
 

@@ -1,3 +1,15 @@
-<h1>{{ title }}</h1>
+<div class="bg-light shadow fixed top-0 z-100 w-full header-bar">
+  <h1>{{ title }}</h1>
+  <div class="absolute calibration-container">
+    <app-calibration
+      (opOpenCalibration)="openCalibration.emit($event)"
+      [opOpenedCalibration]="openedCalibration"
+    ></app-calibration>
+  </div>
+</div>
 
-<div>{{ text }}</div>
+<div class="text">
+  <markdown [data]="text"></markdown>
+</div>
+
+<hr *ngIf="text" width="500" class="mb-3" />

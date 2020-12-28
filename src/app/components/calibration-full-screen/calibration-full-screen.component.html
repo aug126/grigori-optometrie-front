@@ -1,0 +1,28 @@
+<div
+  *ngIf="showCalibration"
+  [@simpleFadeAnimation]="'in'"
+  class="fixed bottom-0 right-0 left-0 z-10 bg-white calibration-container"
+>
+  <div class="flex flex-column items-center">
+    <h2>Calibration mesure réelle.</h2>
+    <div class="mb-4 w-2xs">
+      <label for="input-width-mesured">longueur mesurée (cm)</label>
+      <div class="float-r">
+        <app-input-number
+          (opMesureChange)="updateWidthMesured($event)"
+          [opOldMesure]="mesureCmWidth$ | async"
+        ></app-input-number>
+      </div>
+    </div>
+
+    <!-- Règle à mesurer -->
+    <div class="container-center">
+      <div #rect class="div-rectangle"></div>
+      <div class="mesure-container">
+        {{ (mesureCmWidth$ | async) || "??" }} cm
+      </div>
+      <div class="arrow-left float-r"></div>
+      <div class="arrow-right"></div>
+    </div>
+  </div>
+</div>

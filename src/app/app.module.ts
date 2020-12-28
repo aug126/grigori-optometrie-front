@@ -9,6 +9,11 @@ import { ImageOptometrieListComponent } from './components/image-optometrie-list
 import { ImageOptometrieFullScreenComponent } from './components/image-optometrie-full-screen/image-optometrie-full-screen.component';
 import { HomeComponent } from './pages/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MarkdownModule } from 'ngx-markdown';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CalibrationFullScreenComponent } from './components/calibration-full-screen/calibration-full-screen.component';
+import { InputNumberComponent } from './components/input-number/input-number.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,8 +24,16 @@ import { HttpClientModule } from '@angular/common/http';
     ImageOptometrieListComponent,
     ImageOptometrieFullScreenComponent,
     HomeComponent,
+    CalibrationFullScreenComponent,
+    InputNumberComponent,
   ],
-  imports: [BrowserModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    MarkdownModule.forRoot(),
+    BrowserAnimationsModule,
+    FormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
