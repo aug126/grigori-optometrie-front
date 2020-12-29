@@ -14,7 +14,6 @@ import {
   OnInit,
   Output,
   QueryList,
-  ViewChild,
   ViewChildren,
 } from '@angular/core';
 import { Subject } from 'rxjs';
@@ -28,12 +27,18 @@ import { Subject } from 'rxjs';
     // the fade-in/fade-out animation.
     trigger('simpleFadeAnimation', [
       // the "in" style determines the "resting" state of the element when it is visible.
-      state('in', style({ opacity: 1 })),
+      state('in', style({ transform: 'translateY(0)', opacity: 1 })),
 
       // fade in when created. this could also be written as transition('void => *')
-      transition(':enter', [style({ opacity: 0 }), animate(300)]),
+      transition(':enter', [
+        style({ transform: 'translateY(-120%)', opacity: 0 }),
+        animate(300),
+      ]),
       // fade out when destroyed. this could also be written as transition('void => *')
-      transition(':leave', animate(300, style({ opacity: 0 }))),
+      transition(
+        ':leave',
+        animate(300, style({ transform: 'translateY(-120%)', opacity: 0 }))
+      ),
     ]),
   ],
 })

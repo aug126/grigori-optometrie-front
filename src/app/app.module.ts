@@ -14,6 +14,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalibrationFullScreenComponent } from './components/calibration-full-screen/calibration-full-screen.component';
 import { InputNumberComponent } from './components/input-number/input-number.component';
 import { FormsModule } from '@angular/forms';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ import { FormsModule } from '@angular/forms';
     MarkdownModule.forRoot(),
     BrowserAnimationsModule,
     FormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [],
   bootstrap: [AppComponent],
