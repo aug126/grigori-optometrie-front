@@ -28,10 +28,10 @@ import { OptometricImage } from 'src/app/interfaces/api.interface';
       state('in', style({ opacity: 1 })),
 
       // fade in when created. this could also be written as transition('void => *')
-      transition(':enter', [style({ opacity: 0 }), animate(300)]),
+      transition(':enter', [style({ opacity: 0 }), animate('400ms ease')]),
 
       // fade out when destroyed. this could also be written as transition('void => *')
-      transition(':leave', animate(300, style({ opacity: 0 }))),
+      transition(':leave', animate('400ms ease', style({ opacity: 0 }))),
     ]),
   ],
 })

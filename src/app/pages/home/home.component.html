@@ -9,7 +9,7 @@
     [opOpenedCalibration]="openedCalibration"
   ></app-header>
 </div>
-<div class="w-sm mx-auto">
+<div class="w-sm mx-auto max-w-full">
   <app-image-optometrie-list
     (opOpenOptoImage)="openedOptoImage = $event"
     [opOptometricImages]="apiS.optoImages$ | async"

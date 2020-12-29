@@ -24,11 +24,13 @@ export class InputNumberComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  handleMinus() {
+  handleMinus(e: MouseEvent) {
+    e.preventDefault();
     this.value = (Number(this.value) - 0.1).toFixed(1);
     this.mesureChange.emit(this.value);
   }
-  handlePlus() {
+  handlePlus(e: MouseEvent) {
+    e.preventDefault();
     this.value = (Number(this.value) + 0.1).toFixed(1);
     this.mesureChange.emit(this.value);
   }

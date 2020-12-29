@@ -4,12 +4,12 @@
   "dataGroups": [
     {
       "name": "api-freshness",
-      "urls": ["http://localhost:1337/**"],
+      "urls": ["https://api.grigori.augustin-doat.be/**"],
       "cacheConfig": {
         "strategy": "freshness",
         "maxSize": 100,
         "maxAge": "3d",
-        "timeout": "10s"
+        "timeout": "5s"
       }
     }
   ],

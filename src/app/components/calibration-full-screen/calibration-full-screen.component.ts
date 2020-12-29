@@ -31,13 +31,16 @@ import { Subject } from 'rxjs';
 
       // fade in when created. this could also be written as transition('void => *')
       transition(':enter', [
-        style({ transform: 'translateY(-120%)', opacity: 0 }),
-        animate(300),
+        style({ transform: 'translateY(-120%)', opacity: 0.5 }),
+        animate('400ms ease-out'),
       ]),
       // fade out when destroyed. this could also be written as transition('void => *')
       transition(
         ':leave',
-        animate(300, style({ transform: 'translateY(-120%)', opacity: 0 }))
+        animate(
+          '400ms ease-in',
+          style({ transform: 'translateY(-120%)', opacity: 0.5 })
+        )
       ),
     ]),
   ],
@@ -45,7 +48,6 @@ import { Subject } from 'rxjs';
 export class CalibrationFullScreenComponent implements OnInit {
   private _showCalibration: boolean = false;
   @Input('opRefreshSize') set refreshSize(value: number | null) {
-    console.log('Refresh SIZE');
     this._refreshSize();
   }
 
@@ -79,7 +81,6 @@ export class CalibrationFullScreenComponent implements OnInit {
     this.mesureCmWidth$.next(mesureCmWidth);
     const mesurePxWidth = this.rect?.first?.nativeElement?.offsetWidth || 1;
     const pxToCm = mesurePxWidth / Number(mesureCmWidth); // px per cm
-    console.log('coef computed: ', pxToCm);
     this.pxToCmRatio.emit(pxToCm);
   }
 
