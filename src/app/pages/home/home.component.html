@@ -1,4 +1,7 @@
-<div class="text-center header-container">
+<div
+  (window:resize)="calibrationS.refreshSize($event)"
+  class="text-center header-container"
+>
   <app-header
     (opOpenCalibration)="openCalibration()"
     [opTitle]="(apiS.homeContent$ | async)?.title"
@@ -20,6 +23,7 @@
 ></app-image-optometrie-full-screen>
 
 <app-calibration-full-screen
+  [opRefreshSize]="calibrationS.refreshSize$ | async"
   [opShowCalibration]="openedCalibration"
   [opOldPxToCmRatio]="calibrationS.pxToCm"
   (opHideCalibration)="openedCalibration = false"

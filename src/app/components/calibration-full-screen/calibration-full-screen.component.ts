@@ -44,22 +44,15 @@ import { Subject } from 'rxjs';
 })
 export class CalibrationFullScreenComponent implements OnInit {
   private _showCalibration: boolean = false;
+  @Input('opRefreshSize') set refreshSize(value: number | null) {
+    console.log('Refresh SIZE');
+    this._refreshSize();
+  }
+
   @Input('opShowCalibration')
   set showCalibration(value: boolean) {
     this._showCalibration = value;
-    // compute mesure with old ratio
-    if (value) {
-      setTimeout(() => {
-        if (!this.rect) {
-          return;
-        }
-        let oldCmMesure: number | string =
-          (this.rect?.first?.nativeElement?.offsetWidth || 1) /
-          (this.oldPxToCmRatio || 0);
-        oldCmMesure = parseFloat(oldCmMesure.toString()).toFixed(1);
-        this.mesureCmWidth$.next(oldCmMesure);
-      }, 10);
-    }
+    this._refreshSize();
   }
   get showCalibration() {
     return this._showCalibration;
@@ -88,5 +81,19 @@ export class CalibrationFullScreenComponent implements OnInit {
     const pxToCm = mesurePxWidth / Number(mesureCmWidth); // px per cm
     console.log('coef computed: ', pxToCm);
     this.pxToCmRatio.emit(pxToCm);
+  }
+
+  private _refreshSize() {
+    // compute mesure with old ratio
+    setTimeout(() => {
+      if (!this.rect) {
+        return;
+      }
+      let oldCmMesure: number | string =
+        (this.rect?.first?.nativeElement?.offsetWidth || 1) /
+        (this.oldPxToCmRatio || 0);
+      oldCmMesure = parseFloat(oldCmMesure.toString()).toFixed(1);
+      this.mesureCmWidth$.next(oldCmMesure);
+    }, 10);
   }
 }

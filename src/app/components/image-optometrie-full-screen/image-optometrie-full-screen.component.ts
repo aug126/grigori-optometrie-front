@@ -1,21 +1,20 @@
 import {
   animate,
-  animation,
   state,
   style,
   transition,
   trigger,
 } from '@angular/animations';
 import {
-  Component,
-  OnInit,
   ChangeDetectionStrategy,
-  Input,
-  Output,
+  Component,
   EventEmitter,
+  Input,
+  OnInit,
+  Output,
 } from '@angular/core';
 import { getImage } from 'src/app/helpers/get-image';
-import { Image, OptometricImage } from 'src/app/interfaces/api.interface';
+import { OptometricImage } from 'src/app/interfaces/api.interface';
 
 @Component({
   selector: 'app-image-optometrie-full-screen',
@@ -46,8 +45,6 @@ export class ImageOptometrieFullScreenComponent implements OnInit {
     return this.showOptoImage ? getImage(this.showOptoImage.image) : '';
   }
   get imgWidth() {
-    console.log('image width: ', this.showOptoImage?.image_width);
-    console.log('ratio: ', this.pxToCm);
     return (this.showOptoImage?.image_width || 0) * (this.pxToCm || 0);
   }
   constructor() {}
