@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "deploy": "./scripts/deploy.sh",
+    "assets:generate": "pwa-asset-generator src/logo-to-process.webp src/assets/generated/icons --manifest src/manifest.webmanifest --icon-only",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
@@ -22,6 +23,7 @@
     "@angular/router": "~11.0.4",
     "@angular/service-worker": "~11.0.4",
     "ngx-markdown": "^11.0.1",
+    "pwa-asset-generator": "^4.1.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"

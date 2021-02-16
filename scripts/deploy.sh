@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# npm run assets:generate
 ng build --prod
 cd dist/optometrie-angular
 zip grigori-optometrie.zip * -r 
