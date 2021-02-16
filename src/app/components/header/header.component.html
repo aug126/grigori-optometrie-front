@@ -1,5 +1,7 @@
 <div class="bg-light shadow fixed top-0 z-100 w-full header-bar">
-  <h1>{{ title }}</h1>
+  <div class="flex items-center">
+    <h1>{{ title }}</h1>
+  </div>
   <div class="absolute calibration-container">
     <app-calibration
       (opOpenCalibration)="openCalibration.emit($event)"
@@ -8,8 +10,8 @@
   </div>
 </div>
 
-<div class="text">
+<div class="text container px-16px">
   <markdown [data]="text"></markdown>
 </div>
 
-<div class="split-line mb-3 mx-auto" *ngIf="text"></div>
+<div class="split-line my-6 mx-auto" *ngIf="text"></div>

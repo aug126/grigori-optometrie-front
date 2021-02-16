@@ -1,8 +1,12 @@
 <div
   (click)="emitOpenImage()"
-  class="img-container rounded-lg shadow-lg max-w-full"
-  [style.background-image]="'url(' + image + ')'"
+  class="img-container rounded-lg shadow-lg max-w-full flex justify-center"
+  [style.background-color]="'#25282c'"
 >
+  <div
+    class="img-background"
+    [style.background-image]="'url(' + image + ')'"
+  ></div>
   <h3 class="bg-white text-primary shadow card-title">
     {{ optometricImage?.title }}
   </h3>

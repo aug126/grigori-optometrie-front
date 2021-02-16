@@ -2,13 +2,18 @@
 
 .header-bar {
   & + .text {
-    margin-top: 130px;
+    margin-top: calc(20px + @header-height);
+    text-align: left;
   }
+  height: @header-height;
+  display: flex;
+  justify-items: center;
 }
 h1 {
-  padding: 22px 0;
+  @media screen and (max-width: 600px) {
+    font-size: 18px;
+  }
   font-weight: normal;
-  min-height: 46px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;

@@ -1,6 +1,8 @@
-<div *ngFor="let optoImg of optometricImages">
-  <app-image-optometrie-item
-    (opOpenOptoImage)="openOptoImage.emit($event)"
-    [opOptometricImage]="optoImg"
-  ></app-image-optometrie-item>
+<div class="px-16px flex flex-wrap justify-evenly">
+  <div *ngFor="let optoImg of optometricImages">
+    <app-image-optometrie-item
+      (opOpenOptoImage)="openOptoImage.emit($event)"
+      [opOptometricImage]="optoImg"
+    ></app-image-optometrie-item>
+  </div>
 </div>
