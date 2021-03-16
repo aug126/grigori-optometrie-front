@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  api: 'https://api.grigori.augustin-doat.be',
+  api: 'https://grigori.augustin-doat.be/api',
 };

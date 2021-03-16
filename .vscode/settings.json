@@ -1,0 +1,13 @@
+{
+  "workbench.colorCustomizations": {
+    "[Midnight Color]": {
+      "activityBar.inactiveForeground": "#ffffff7a"
+    },
+    "[Henna]": {
+      "activityBar.background": "#8d8d8d"
+    },
+    "activityBar.background": "#073524",
+    "titleBar.activeBackground": "#0A4A33",
+    "titleBar.activeForeground": "#F1FDF9"
+  }
+}

@@ -16,6 +16,8 @@ import { InputNumberComponent } from './components/input-number/input-number.com
 import { FormsModule } from '@angular/forms';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { LoginComponent } from './pages/login/login.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -28,14 +30,18 @@ import { environment } from '../environments/environment';
     HomeComponent,
     CalibrationFullScreenComponent,
     InputNumberComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
+    RouterModule.forRoot([{ path: '', component: HomeComponent }]),
     HttpClientModule,
     MarkdownModule.forRoot(),
     BrowserAnimationsModule,
     FormsModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],

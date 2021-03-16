@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { getImage } from 'src/app/helpers/get-image';
-import { Image, OptometricImage } from 'src/app/interfaces/api.interface';
+import { OptometricImage } from 'src/app/interfaces/api.interface';
 
 @Component({
   selector: 'app-image-optometrie-item',
@@ -21,8 +21,11 @@ export class ImageOptometrieItemComponent implements OnInit {
   @Output('opOpenOptoImage')
   openOptoImage = new EventEmitter<OptometricImage>();
 
-  get image() {
-    return getImage(this.optometricImage.image, 'medium');
+  get preview() {
+    return getImage(
+      this.optometricImage.preview || this.optometricImage.image,
+      'medium'
+    );
   }
   constructor() {}
 

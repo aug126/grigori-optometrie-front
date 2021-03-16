@@ -13,6 +13,7 @@ export interface OptometricImage {
   created_at: string;
   updated_at: string;
   image: Image;
+  preview?: Image;
 }
 
 export interface Image {

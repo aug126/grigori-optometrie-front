@@ -4,7 +4,7 @@
   "dataGroups": [
     {
       "name": "api-freshness",
-      "urls": ["https://api.grigori.augustin-doat.be/**"],
+      "urls": ["https://grigori.augustin-doat.be/api/**"],
       "cacheConfig": {
         "strategy": "freshness",
         "maxSize": 100,
