@@ -1,11 +1,13 @@
 import {
-  Component,
-  OnInit,
   ChangeDetectionStrategy,
-  Input,
-  Output,
+  Component,
   EventEmitter,
+  Input,
+  OnInit,
+  Output,
 } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
+import { getImage } from 'src/app/helpers/get-image';
 import { Image, OptometricImage } from 'src/app/interfaces/api.interface';
 
 @Component({
@@ -19,7 +21,10 @@ export class ImageOptometrieListComponent implements OnInit {
   @Output('opOpenOptoImage')
   openOptoImage = new EventEmitter<OptometricImage>();
 
-  constructor() {}
+  getSafeImage(image: Image) {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(getImage(image));
+  }
+  constructor(private sanitizer: DomSanitizer) {}
 
   ngOnInit(): void {}
 }

@@ -4,5 +4,6 @@
       (opOpenOptoImage)="openOptoImage.emit($event)"
       [opOptometricImage]="optoImg"
     ></app-image-optometrie-item>
+    <link rel="preload" as="image" [href]="getSafeImage(optoImg.image)" />
   </div>
 </div>
