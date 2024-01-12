@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { first, map } from 'rxjs/operators';
 import { OptometricImage } from 'src/app/interfaces/api.interface';
-import { ApiService } from 'src/app/services/api.service';
 import { CalibrationService } from 'src/app/services/calibration.service';
 import { config } from '../../../config/config';
+import { homeText } from './home-text';
+import { homeImages } from './home-images';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -17,8 +18,10 @@ export class HomeComponent implements OnInit {
   connected = false;
   code = config.code;
 
+  text: string = homeText;
+  images: OptometricImage[] = homeImages;
+
   constructor(
-    public apiS: ApiService,
     public calibrationS: CalibrationService,
     private route: ActivatedRoute
   ) {

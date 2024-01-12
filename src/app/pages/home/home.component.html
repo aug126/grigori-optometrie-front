@@ -11,15 +11,15 @@
   >
     <app-header
       (opOpenCalibration)="openCalibration()"
-      [opTitle]="(apiS.homeContent$ | async)?.title"
-      [opText]="(apiS.homeContent$ | async)?.text"
+      [opTitle]="'Testing mallet versus tablet'"
       [opOpenedCalibration]="openedCalibration"
+      [opText]="text"
     ></app-header>
   </div>
   <div class="w-lg mx-auto max-w-full">
     <app-image-optometrie-list
       (opOpenOptoImage)="openedOptoImage = $event"
-      [opOptometricImages]="apiS.optoImages$ | async"
+      [opOptometricImages]="images"
     ></app-image-optometrie-list>
   </div>
 

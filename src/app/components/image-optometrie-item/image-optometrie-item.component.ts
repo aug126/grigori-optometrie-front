@@ -22,10 +22,7 @@ export class ImageOptometrieItemComponent implements OnInit {
   openOptoImage = new EventEmitter<OptometricImage>();
 
   get preview() {
-    return getImage(
-      this.optometricImage.preview || this.optometricImage.image,
-      'medium'
-    );
+    return getImage(this.optometricImage.preview || this.optometricImage.image);
   }
   constructor() {}
 
